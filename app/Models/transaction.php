@@ -5,13 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class stock extends Model
+class transaction extends Model
 {
     use HasFactory;
-    protected $with=[ 'products'];
-
-
-    public function products(){
-        return $this->hasMany(product::class);
-    }
 }

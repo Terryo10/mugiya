@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->integer('quantity_in_stock');
             $table->double('price');
-            $table->json('properties');
+            $table->Text('properties');
             $table->unsignedBigInteger('stock_id');
             $table->foreign('stock_id')->references('id')->on('stocks')->onDelete('cascade');
             $table->unsignedBigInteger('category_id');

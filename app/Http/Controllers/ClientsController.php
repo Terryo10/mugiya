@@ -2,18 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\customer;
+use App\Models\stock;
 use Illuminate\Http\Request;
 
 class ClientsController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $stock = stock::find($id);
+        $clients = customer::all();
+        return view('pages.clients.index')->with('stock', $stock)->with('clients', $clients);
     }
 
     /**
@@ -21,9 +35,10 @@ class ClientsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $stock = stock::find($id);
+        return view('pages.clients.create')->with('stock', $stock);
     }
 
     /**
@@ -34,7 +49,19 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $stock = stock::find($request->nom);
+        $request->validate([
+            'email' => 'required',
+            'phone_number' => 'required',
+            'name' => 'required',
+        ]);
+       $client = new customer();
+       $client->name = $request->input('name');
+       $client->phone_number = $request->input('phone_number');
+       $client->email =  $request->input('email');
+       $client->save();
+        $clients = customer::all();
+        return view('pages.clients.index')->with('stock', $stock)->with('clients', $clients);
     }
 
     /**

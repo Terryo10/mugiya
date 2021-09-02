@@ -8,14 +8,14 @@
                 </a>
             </li>
             <li @if ($pageSlug == 'clients') class="active " @endif>
-                <a href="/clients">
+                <a href="/clients/{{$StockId}}">
                     <i class="tim-icons icon-single-02"></i>
                     <p>Clients</p>
                 </a>
             </li>
 
             <li @if ($pageSlug == 'providers') class="active " @endif>
-                <a href="/products/{{$StockId}}">
+                <a href="/stock/products/{{$StockId}}">
                     <i class="tim-icons icon-delivery-fast"></i>
                     <p>Products</p>
                 </a>
@@ -33,45 +33,17 @@
                         <li @if ($pageSlug == 'tstats') class="active " @endif>
                             <a href="">
                                 <i class="tim-icons icon-chart-pie-36"></i>
-                                <p>Statistics</p>
+                                <p>Make Payment</p>
                             </a>
                         </li>
                         <li @if ($pageSlug == 'transactions') class="active " @endif>
                             <a href="">
                                 <i class="tim-icons icon-bullet-list-67"></i>
-                                <p>All</p>
+                                <p>Stock History</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug == 'sales') class="active " @endif>
-                            <a href="">
-                                <i class="tim-icons icon-bag-16"></i>
-                                <p>Sales</p>
-                            </a>
-                        </li>
-                        <li @if ($pageSlug == 'expenses') class="active " @endif>
-                            <a href="">
-                                <i class="tim-icons icon-coins"></i>
-                                <p>Expenses</p>
-                            </a>
-                        </li>
-                        <li @if ($pageSlug == 'incomes') class="active " @endif>
-                            <a href="">
-                                <i class="tim-icons icon-credit-card"></i>
-                                <p>Income</p>
-                            </a>
-                        </li>
-                        <li @if ($pageSlug == 'transfers') class="active " @endif>
-                            <a href="">
-                                <i class="tim-icons icon-send"></i>
-                                <p>Transfers</p>
-                            </a>
-                        </li>
-                        <li @if ($pageSlug == 'payments') class="active " @endif>
-                            <a href="">
-                                <i class="tim-icons icon-money-coins"></i>
-                                <p>Payments</p>
-                            </a>
-                        </li>
+
+
                     </ul>
                 </div>
             </li>

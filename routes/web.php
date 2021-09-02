@@ -36,5 +36,7 @@ Route::get('email/verify', [App\Http\Controllers\Auth\VerificationController::cl
 Route::get('email/verify/{id}/{hash}', [App\Http\Controllers\Auth\VerificationController::class, 'verify'])->name('verification.verify');
 Route::post('email/resend', [App\Http\Controllers\Auth\VerificationController::class, 'resend'])->name('verification.resend');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/stock/managment/{id}', [App\Http\Controllers\StockController::class, 'stock'])->name('stock');
+Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('stock/managment/{id}', [App\Http\Controllers\StockController::class, 'stock'])->name('stock');
+Route::get('stock/products/{id}', [App\Http\Controllers\StockController::class, 'products'])->name('stock.product');
+Route::resource('clients/{nom}',App\Http\Controllers\ClientsController::class);
