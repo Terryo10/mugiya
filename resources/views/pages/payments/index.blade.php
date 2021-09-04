@@ -1,10 +1,20 @@
-@extends('layouts.template', ['pageSlug' => 'products', 'page' => 'Products', 'section' => '','StockId'=> $stock->id])
+@extends('layouts.template', ['pageSlug' => 'payments', 'page' => 'Payments', 'section' => 'transactions','StockId'=> $stock->id])
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Total sales for {{ $stock->name }} are {{$total}}</div>
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8">
+                                Total sales for {{ $stock->name }} are ${{ number_format($total, 2, ',', '.') }}
+                            </div>
+                            <div class="col-4 text-right">
+                                <a href="/payments/{{$stock->id}}/create" class="btn btn-sm btn-primary">Create A New Transaction</a>
+                            </div>
+                        </div>
+
+                    </div>
 
                     <div class="card-body">
                         <div class="card-body">
@@ -18,16 +28,6 @@
                                     </thead>
                                     <tbody>
 
-                                    @foreach($stock->products  as $products)
-                                        <tr>
-                                            <td>{{$products->name}}</td>
-                                            <td>{{$products->created_at}}</td>
-                                            <td>{{$products->quantity_in_stock}}</td>
-                                            <td>$ {{$products->price}}</td>
-
-
-                                        </tr>
-                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

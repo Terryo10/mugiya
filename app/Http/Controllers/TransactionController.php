@@ -2,18 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\paymentMethods;
+use App\Models\product;
+use App\Models\stock;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $stock = stock::find($id);
+        $paymentMethods = paymentMethods::all();
+        $total = 0;
+        $products = product::where('stock_id', '=' , $id);
+        return  view('pages.payments.index')
+            ->with('products', $products)
+            ->with('paymentMethods', $paymentMethods)
+            ->with('stock', $stock)
+            ->with('total', $total);
     }
 
     /**

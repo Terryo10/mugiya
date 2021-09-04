@@ -14,7 +14,7 @@
                 </a>
             </li>
 
-            <li @if ($pageSlug == 'providers') class="active " @endif>
+            <li @if ($pageSlug == 'products') class="active " @endif>
                 <a href="/stock/products/{{$StockId}}">
                     <i class="tim-icons icon-delivery-fast"></i>
                     <p>Products</p>
@@ -30,13 +30,13 @@
 
                 <div class="collapse {{ $section == 'transactions' ? 'show' : '' }}" id="transactions">
                     <ul class="nav pl-4">
-                        <li @if ($pageSlug == 'tstats') class="active " @endif>
-                            <a href="">
+                        <li @if ($pageSlug == 'payments') class="active " @endif>
+                            <a href="/payments/{{$StockId}}/">
                                 <i class="tim-icons icon-chart-pie-36"></i>
                                 <p>Make Payment</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug == 'transactions') class="active " @endif>
+                        <li @if ($pageSlug == 'stockhistory') class="active " @endif>
                             <a href="">
                                 <i class="tim-icons icon-bullet-list-67"></i>
                                 <p>Stock History</p>

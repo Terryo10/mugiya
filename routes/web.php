@@ -39,4 +39,6 @@ Route::post('email/resend', [App\Http\Controllers\Auth\VerificationController::c
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('stock/managment/{id}', [App\Http\Controllers\StockController::class, 'stock'])->name('stock');
 Route::get('stock/products/{id}', [App\Http\Controllers\StockController::class, 'products'])->name('stock.product');
+
+Route::resource('payments/{id}/',App\Http\Controllers\TransactionController::class);
 Route::resource('clients/{nom}',App\Http\Controllers\ClientsController::class);
