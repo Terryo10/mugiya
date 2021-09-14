@@ -30,14 +30,20 @@
 
                 <div class="collapse {{ $section == 'transactions' ? 'show' : '' }}" id="transactions">
                     <ul class="nav pl-4">
-                        <li @if ($pageSlug == 'payments') class="active " @endif>
-                            <a href="/payments/{{$StockId}}/">
-                                <i class="tim-icons icon-chart-pie-36"></i>
-                                <p>Make Payment</p>
+{{--                        <li @if ($pageSlug == 'payments') class="active " @endif>--}}
+{{--                            <a href="/payments/{{$StockId}}/">--}}
+{{--                                <i class="tim-icons icon-chart-pie-36"></i>--}}
+{{--                                <p>Make Payment</p>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+                        <li @if ($pageSlug == 'cart') class="active " @endif>
+                            <a href="/cart/{{$StockId}}/">
+                                <i class="tim-icons icon-cart"></i>
+                                <p>Cart</p>
                             </a>
                         </li>
                         <li @if ($pageSlug == 'stockhistory') class="active " @endif>
-                            <a href="">
+                            <a href="/stock_history/{{$StockId}}">
                                 <i class="tim-icons icon-bullet-list-67"></i>
                                 <p>Stock History</p>
                             </a>

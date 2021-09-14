@@ -11,12 +11,24 @@
                             <div class="">
                                 <table class="table">
                                     <thead>
-                                    <th>Name</th>
-                                    <th>Date</th>
-                                    <th>Action</th>
+                                    <th>currently sold</th>
+                                    <th>Products left in stock</th>
+                                    <th>Total Amount Earned</th>
                                     <th>Status</th>
                                     </thead>
                                     <tbody>
+                                    <td>{{$productsSold}}</td>
+                                    <td>{{$productsLeftInStock}}</td>
+                                    <td>$ {{ number_format($totalAmountSold, 2, ',', '.') }}</td>
+                                    <td>@if($stock->status)
+                                    Products Available in stock
+
+                                        @else
+
+                                        No Products in stock
+                                        @endif
+                                    </td>
+
 
                                     </tbody>
                                 </table>
@@ -29,3 +41,4 @@
         </div>
     </div>
 @endsection
+
