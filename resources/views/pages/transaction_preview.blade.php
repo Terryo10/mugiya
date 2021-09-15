@@ -92,7 +92,7 @@
                             <h4 class="card-title">Method Used To Pay</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="" class="btn btn-sm btn-primary">View Methods</a>
+                            <a href="/print_invoice/{{$transaction->id}}" class="btn btn-sm btn-primary">Print Invoice</a>
                         </div>
                     </div>
                 </div>

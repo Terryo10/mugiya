@@ -11,6 +11,7 @@ use App\Models\transaction;
 use App\Models\transactionItems;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\PDF;
 
 class TransactionController extends Controller
 {
@@ -203,6 +204,21 @@ class TransactionController extends Controller
             return view('pages.stock_history')
                 ->with('transaction', $transaction )
                 ->with('stock', $stock);
+        }
+
+        public function printInvoice($id){
+
+        $transaction =transaction::find($id);
+        $client = customer::find($transaction->client_id);
+        $paymentMethod = paymentMethods::find($transaction->payment_methods_id);
+        $total = $this->transactionTotal($id);
+        $pdf = app('dompdf.wrapper')->loadView('invoice',[
+            'transaction'=>$transaction,
+            'client'=>$client,
+            'paymentMethod'=>$paymentMethod,
+            'total'=>$total
+        ]);
+        return $pdf->download("invoice_file_{$client->name}.pdf");
         }
 
 

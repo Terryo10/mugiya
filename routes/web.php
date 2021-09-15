@@ -46,7 +46,7 @@ Route::post('add_to_cart/{id}', [CartController::class, 'addToCart'])->name('add
 Route::post('decrement', [CartController::class, 'decrement'])->name('decrement');
 Route::post('increment', [CartController::class, 'increment'])->name('increment_cart');
 Route::post('delete_cart_item', [CartController::class, 'deleteCartItem'])->name('delete_cart_item');
-
+Route::get('print_invoice/{id}',[TransactionController::class,'printInvoice'])->name('print_invoice');
 Route::resource('payments/{id}/',App\Http\Controllers\TransactionController::class);
 Route::get('/get_transaction', [TransactionController::class, 'getTransaction'])->name('get_transaction');
 Route::get('/stock_history/{id}', [TransactionController::class, 'stockHistory'])->name('get_transaction');
