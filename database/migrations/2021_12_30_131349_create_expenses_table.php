@@ -17,6 +17,8 @@ class CreateExpensesTable extends Migration
             $table->id();
             $table->string('name');
             $table->double('amount_of_expense');
+            $table->unsignedBigInteger('stock_id');
+            $table->foreign('stock_id')->references('id')->on('stocks')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,6 +17,8 @@ class CreateDiscountsTable extends Migration
             $table->id();
             $table->string('name');
             $table->double('discount');
+            $table->unsignedBigInteger('stock_id');
+            $table->foreign('stock_id')->references('id')->on('stocks')->onDelete('cascade');
             $table->timestamps();
         });
     }

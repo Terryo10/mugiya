@@ -12,6 +12,11 @@ use App\Models\transactionItems;
 
 class DebtPagesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('allowedUsers');
+    }
     public function getProducts(Request $request){
             $stock = stock::find($request->id);
             $debt = Debt::all();

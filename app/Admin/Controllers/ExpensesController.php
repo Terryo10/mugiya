@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use App\Models\stock;
 
 class ExpensesController extends AdminController
 {
@@ -29,6 +30,7 @@ class ExpensesController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
         $grid->column('amount_of_expense', __('Amount of expense'));
+        $grid->column('stock_id', __('Stock id'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -48,6 +50,7 @@ class ExpensesController extends AdminController
         $show->field('id', __('Id'));
         $show->field('name', __('Name'));
         $show->field('amount_of_expense', __('Amount of expense'));
+        $show->field('stock_id', __('Stock id'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -65,6 +68,7 @@ class ExpensesController extends AdminController
 
         $form->text('name', __('Name'));
         $form->decimal('amount_of_expense', __('Amount of expense'));
+        $form->select('stock_id', __('Stock id'))->options(stock::all()->pluck('name', 'id'));
 
         return $form;
     }

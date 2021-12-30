@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-      public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('allowedUsers');
     }
     public function index($id){
         $paymentMethods = paymentMethods::all();

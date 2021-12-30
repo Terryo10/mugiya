@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use App\Models\stock;
 
 class DiscountController extends AdminController
 {
@@ -29,6 +30,7 @@ class DiscountController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
         $grid->column('discount', __('Discount'));
+        $grid->column('stock_id', __('Stock id'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -48,6 +50,7 @@ class DiscountController extends AdminController
         $show->field('id', __('Id'));
         $show->field('name', __('Name'));
         $show->field('discount', __('Discount'));
+        $show->field('stock_id', __('Stock id'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -65,6 +68,7 @@ class DiscountController extends AdminController
 
         $form->text('name', __('Name'));
         $form->decimal('discount', __('Discount'));
+        $form->select('stock_id', __('Stock id'))->options(stock::all()->pluck('name', 'id'));
 
         return $form;
     }

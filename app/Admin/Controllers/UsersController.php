@@ -8,7 +8,7 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class UserController extends AdminController
+class UsersController extends AdminController
 {
     /**
      * Title for current resource.
@@ -31,6 +31,7 @@ class UserController extends AdminController
         $grid->column('email', __('Email'));
         $grid->column('email_verified_at', __('Email verified at'));
         $grid->column('password', __('Password'));
+        $grid->column('teller', __('Teller'));
         $grid->column('role', __('Role'));
         $grid->column('remember_token', __('Remember token'));
         $grid->column('created_at', __('Created at'));
@@ -54,6 +55,7 @@ class UserController extends AdminController
         $show->field('email', __('Email'));
         $show->field('email_verified_at', __('Email verified at'));
         $show->field('password', __('Password'));
+        $show->field('teller', __('Teller'));
         $show->field('role', __('Role'));
         $show->field('remember_token', __('Remember token'));
         $show->field('created_at', __('Created at'));
@@ -75,6 +77,7 @@ class UserController extends AdminController
         $form->email('email', __('Email'));
         $form->datetime('email_verified_at', __('Email verified at'))->default(date('Y-m-d H:i:s'));
         $form->password('password', __('Password'));
+        $form->switch('teller', __('Teller'));
         $form->number('role', __('Role'))->default(1);
         $form->text('remember_token', __('Remember token'));
 

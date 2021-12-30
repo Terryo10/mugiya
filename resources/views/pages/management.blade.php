@@ -17,7 +17,8 @@
                                     <th>Total Debt </th>
                                     <th>Products debted</th>
                                     <th>Products in stock after debt</th>
-
+                                    <th>Stock Expenses</th>
+                                    <th>Stock Discounts</th>
                                     <th>Status</th>
                                     </thead>
                                     <tbody>
@@ -27,6 +28,7 @@
                                   <td>$ {{ number_format($totalDebt, 2, ',', '.') }}</td>
                                   <td>{{$totalDebtProducts}}</td>
                                   <td>{{$productsLeftInStock - $totalDebtProducts}}</td>
+
 
                                     <td>@if($stock->status)
                                     Products Available in stock

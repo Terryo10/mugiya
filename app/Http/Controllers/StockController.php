@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Debt;
+use App\Models\Discount;
+use App\Models\Expenses;
 use App\Models\product;
 use App\Models\stock;
 use App\Models\transaction;
@@ -18,6 +20,7 @@ class StockController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('allowedUsers');
     }
 
     public function stock($id){
@@ -27,6 +30,19 @@ class StockController extends Controller
         $productsSold = 0;
         $totalDebt = 0;
         $totalDebtProducts = 0;
+        $totalExpense = 0;
+        $totalDiscount = 0;
+
+        $discount =  Discount::where('stock_id','=' ,$stock->id)->get();
+        foreach($discount as $dr){
+            $totalDiscount = $totalDiscount + $dr->discount;
+        }
+
+        $expense = Expenses::where('stock_id','=' ,$stock->id)->get();
+        foreach($expense as $dr){
+            $totalExpense = $totalExpense + $dr->amount_of_expense;
+        }
+
 
         $products = product::where('stock_id', '=', $stock->id)->get();
         $transactions = transaction::where('stock_id','=', $stock->id)->get();
@@ -57,7 +73,9 @@ class StockController extends Controller
             ->with('totalAmountSold',$totalAmountSold)
             ->with('productsLeftInStock',$productsLeftInStock)
             ->with('totalDebt',$totalDebt)
-            ->with('totalDebtProducts',$totalDebtProducts);
+            ->with('totalDebtProducts',$totalDebtProducts)
+            ->with('totalDiscount', $totalDiscount)
+            ->with('totalExpense', $totalExpense);
     }
 
     public function products($id)
