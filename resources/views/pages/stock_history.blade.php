@@ -14,7 +14,7 @@
                         </div>
                         <div class="col-4 text-right">
                             <a href="" class="btn btn-sm btn-primary">
-                                kk
+                                Stock Expenses
                             </a>
                         </div>
                     </div>

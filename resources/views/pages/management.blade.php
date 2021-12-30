@@ -22,7 +22,6 @@
                                     <td>$ {{ number_format($totalAmountSold, 2, ',', '.') }}</td>
                                     <td>@if($stock->status)
                                     Products Available in stock
-
                                         @else
 
                                         No Products in stock

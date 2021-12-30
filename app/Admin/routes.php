@@ -17,6 +17,6 @@ Route::group([
     $router->resource('categories', CategoryController::class);
     $router->resource('products', ProductController::class);
     $router->resource('payment_methods', PaymentsController::class);
-
-
+    $router->resource('expenses', ExpensesController::class);
+    $router->resource('discounts', DiscountController::class);
 });

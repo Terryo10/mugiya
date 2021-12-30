@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DebtController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,4 +51,9 @@ Route::get('print_invoice/{id}',[TransactionController::class,'printInvoice'])->
 Route::resource('payments/{id}/',App\Http\Controllers\TransactionController::class);
 Route::get('/get_transaction', [TransactionController::class, 'getTransaction'])->name('get_transaction');
 Route::get('/stock_history/{id}', [TransactionController::class, 'stockHistory'])->name('get_transaction');
+Route::get('/create_debt/{id}',[DebtController::class,'create']);
+Route::post('debt_store/{id}',[DebtController::class, 'store']);
+Route::get('/debt_history/{id}', [DebtController::class, 'index'])->name('get_transaction');
+
 Route::resource('clients/{nom}',App\Http\Controllers\ClientsController::class);
+

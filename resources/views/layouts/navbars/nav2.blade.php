@@ -53,6 +53,37 @@
                     </ul>
                 </div>
             </li>
+            <li>
+                <a data-toggle="collapse" href="#debt" {{ $section == 'debt' ? 'aria-expanded=true' : '' }}>
+                    <i class="tim-icons icon-bank" ></i>
+                    <span class="nav-link-text">Debt</span>
+                    <b class="caret mt-1"></b>
+                </a>
+                <div class="collapse {{ $section == 'debt' ? 'show' : '' }}" id="debt">
+                    <ul class="nav pl-4">
+                        <li @if ($pageSlug == 'cart') class="active " @endif>
+                            <a href="/create_debt/{{$StockId}}">
+                                <i class="tim-icons icon-cart"></i>
+                                <p> Create Debt</p>
+                            </a>
+                        </li>
+                        <li @if ($pageSlug == 'cart') class="active " @endif>
+                            <a href="/create_debt/{{$StockId}}/">
+                                <i class="tim-icons icon-cart"></i>
+                                <p>Add Products To Debt</p>
+                            </a>
+                        </li>
+                        <li @if ($pageSlug == 'stockhistory') class="active " @endif>
+                            <a href="/debt_history/{{$StockId}}">
+                                <i class="tim-icons icon-bullet-list-67"></i>
+                                <p>Debt History</p>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </li>
 
 
 
