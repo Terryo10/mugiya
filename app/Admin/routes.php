@@ -19,4 +19,5 @@ Route::group([
     $router->resource('payment_methods', PaymentsController::class);
     $router->resource('expenses', ExpensesController::class);
     $router->resource('discounts', DiscountController::class);
+    $router->resource('debts', DebtController::class);
 });

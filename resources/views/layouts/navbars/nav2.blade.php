@@ -68,7 +68,7 @@
                             </a>
                         </li>
                         <li @if ($pageSlug == 'cart') class="active " @endif>
-                            <a href="/create_debt/{{$StockId}}/">
+                            <a href="/debt_cart/{{$StockId}}/">
                                 <i class="tim-icons icon-cart"></i>
                                 <p>Add Products To Debt</p>
                             </a>

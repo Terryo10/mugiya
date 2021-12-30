@@ -12,14 +12,22 @@
                                 <table class="table">
                                     <thead>
                                     <th>currently sold</th>
-                                    <th>Products left in stock</th>
+                                    <th>Anticipated in stock</th>
                                     <th>Total Amount Earned</th>
+                                    <th>Total Debt </th>
+                                    <th>Products debted</th>
+                                    <th>Products in stock after debt</th>
+
                                     <th>Status</th>
                                     </thead>
                                     <tbody>
                                     <td>{{$productsSold}}</td>
                                     <td>{{$productsLeftInStock}}</td>
                                     <td>$ {{ number_format($totalAmountSold, 2, ',', '.') }}</td>
+                                  <td>$ {{ number_format($totalDebt, 2, ',', '.') }}</td>
+                                  <td>{{$totalDebtProducts}}</td>
+                                  <td>{{$productsLeftInStock - $totalDebtProducts}}</td>
+
                                     <td>@if($stock->status)
                                     Products Available in stock
                                         @else

@@ -15,8 +15,9 @@ class DebtController extends Controller
      */
     public function index($id)
     {
+        $stock = stock::find($id);
         $debts = Debt::where('stock_id','=', $id)->get();
-        return $debts;
+        return view('pages.debts.index')->with('debts',$debts)->with('stock', $stock);;
     }
 
     /**
@@ -26,6 +27,7 @@ class DebtController extends Controller
      */
     public function create($id)
     {
+
         $stock = stock::find($id);
         return view('pages.debts.create')->with('stock', $stock);
     }

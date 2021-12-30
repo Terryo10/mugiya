@@ -39,6 +39,16 @@ class Controller extends BaseController
             }
 
     }
+    public function checkProductInDebt($product_id, $cart_items)
+    {
+
+            foreach ($cart_items as $item) {
+                if ($product_id == $item->product_id) {
+                    return $item;
+                }
+            }
+
+    }
 
     public function total()
     {

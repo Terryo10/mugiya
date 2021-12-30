@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DebtController;
+use App\Http\Controllers\DebtPagesController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,6 +55,9 @@ Route::get('/stock_history/{id}', [TransactionController::class, 'stockHistory']
 Route::get('/create_debt/{id}',[DebtController::class,'create']);
 Route::post('debt_store/{id}',[DebtController::class, 'store']);
 Route::get('/debt_history/{id}', [DebtController::class, 'index'])->name('get_transaction');
-
+Route::get('debt_cart/{id}', [DebtPagesController::class,'getProducts']);
+Route::post('addtoDebt',[DebtPagesController::class, 'addtoDebt']);
+Route::get('debt_preview',[DebtPagesController::class, 'debtPreview']);
+Route::get('settle/{id}',[DebtPagesController::class,'settle']);
 Route::resource('clients/{nom}',App\Http\Controllers\ClientsController::class);
 
