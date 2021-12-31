@@ -39,9 +39,11 @@ class StockController extends Controller
         }
 
         $expense = Expenses::where('stock_id','=' ,$stock->id)->get();
+        // return $;
         foreach($expense as $dr){
             $totalExpense = $totalExpense + $dr->amount_of_expense;
         }
+        
 
 
         $products = product::where('stock_id', '=', $stock->id)->get();

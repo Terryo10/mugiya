@@ -28,8 +28,8 @@
                                   <td>$ {{ number_format($totalDebt, 2, ',', '.') }}</td>
                                   <td>{{$totalDebtProducts}}</td>
                                   <td>{{$productsLeftInStock - $totalDebtProducts}}</td>
-
-
+                                  <td>{{$totalExpense}}</td>
+                                  <td>{{$totalDiscount}}</td>
                                     <td>@if($stock->status)
                                     Products Available in stock
                                         @else
