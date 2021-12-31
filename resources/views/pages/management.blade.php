@@ -13,23 +13,25 @@
                                     <thead>
                                     <th>currently sold</th>
                                     <th>Anticipated in stock</th>
-                                    <th>Total Amount Earned</th>
+
                                     <th>Total Debt </th>
                                     <th>Products debted</th>
                                     <th>Products in stock after debt</th>
                                     <th>Stock Expenses</th>
                                     <th>Stock Discounts</th>
+                                    <th>Total Amount Earned</th>
                                     <th>Status</th>
                                     </thead>
                                     <tbody>
                                     <td>{{$productsSold}}</td>
                                     <td>{{$productsLeftInStock}}</td>
-                                    <td>$ {{ number_format($totalAmountSold, 2, ',', '.') }}</td>
+
                                   <td>$ {{ number_format($totalDebt, 2, ',', '.') }}</td>
                                   <td>{{$totalDebtProducts}}</td>
                                   <td>{{$productsLeftInStock - $totalDebtProducts}}</td>
                                   <td>{{$totalExpense}}</td>
                                   <td>{{$totalDiscount}}</td>
+                                  <td>$ {{ number_format(($totalAmountSold - $totalExpense ) - $totalDiscount, 2, ',', '.') }}</td>
                                     <td>@if($stock->status)
                                     Products Available in stock
                                         @else
