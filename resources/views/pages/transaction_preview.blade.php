@@ -14,6 +14,14 @@
                             <a href="" class="btn btn-sm btn-primary">
                                 total ${{$total}}
                             </a>
+
+                            <a href="" class="btn btn-sm btn-primary">
+                                amount paid ${{$transaction->amount_paid}}
+                            </a>
+
+                            <a href="" class="btn btn-sm btn-primary">
+                                Debt ${{$total - $transaction->amount_paid }}
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -24,6 +32,7 @@
                                 <th>name</th>
                                 <th>Description</th>
                                 <th>total price per item</th>
+
                                 <th>Quantity</th>
                                 <th>Price</th>
 
@@ -34,6 +43,7 @@
                                         <td>{{$transaction->product->name}}</td>
                                         <td>{{$transaction->product->description}}</td>
                                         <td>{{$transaction->quantity * $transaction->price}}</td>
+
                                         <td>{{$transaction->quantity}}</td>
                                         <td>$ {{$transaction->price}}</td>
 

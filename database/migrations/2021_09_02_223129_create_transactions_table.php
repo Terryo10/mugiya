@@ -22,6 +22,7 @@ class CreateTransactionsTable extends Migration
             $table->foreign('stock_id')->references('id')->on('stocks')->onDelete('cascade');
             $table->foreign('client_id')->references('id')->on('customers')->onDelete('cascade');
             $table->integer('amount');
+            $table->integer('amount_paid');
             $table->timestamps();
         });
     }

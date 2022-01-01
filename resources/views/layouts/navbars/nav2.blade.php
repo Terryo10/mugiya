@@ -53,7 +53,7 @@
                     </ul>
                 </div>
             </li>
-            <li>
+            {{-- <li>
                 <a data-toggle="collapse" href="#debt" {{ $section == 'debt' ? 'aria-expanded=true' : '' }}>
                     <i class="tim-icons icon-bank" ></i>
                     <span class="nav-link-text">Debt</span>
@@ -83,7 +83,7 @@
 
                     </ul>
                 </div>
-            </li>
+            </li> --}}
 
 
 

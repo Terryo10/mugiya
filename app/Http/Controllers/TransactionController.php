@@ -83,6 +83,7 @@ class TransactionController extends Controller
         $transaction->client_id = $request->input('client_id');
         $transaction->stock_id = $request->input('stock_id');
         $transaction->amount = $this->total();
+        $transaction->amount_paid = $request->input('amount_paid');
         $transaction->save();
 
         //create transaction items
@@ -94,7 +95,6 @@ class TransactionController extends Controller
                 $transaction_item->quantity = $item->quantity;
                 $transaction_item->product_id = $item->product_id;
                 $transaction_item->price = $item->price;
-
                 $transaction_item->save();
                 $product = product::find( $item->product_id);
                 $product->quantity_in_stock = $product->quantity_in_stock - $item->quantity;

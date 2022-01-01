@@ -107,6 +107,13 @@
                                                      </select>
                                                </div>
                                           </div>
+
+                                    <div class="form-group{{ $errors->has('amount_paid') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-qty">Amount Paid</label>
+                                        <input type="tel" name="amount_paid" id="input-qty" class="form-control form-control-alternative{{ $errors->has('amount_paid') ? ' is-invalid' : '' }}"  required>
+                                        @include('alerts.feedback', ['field' => 'amount_paid'])
+                                    </div>
+
                                               <input type="hidden" name="stock_id" value="{{$stock->id}}">
                                           <button type="submit" class="btn btn-primary">Make Transaction</button>
                                           </div>

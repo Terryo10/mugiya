@@ -43,7 +43,7 @@ class StockController extends Controller
         foreach($expense as $dr){
             $totalExpense = $totalExpense + $dr->amount_of_expense;
         }
-        
+
 
 
         $products = product::where('stock_id', '=', $stock->id)->get();
@@ -52,21 +52,16 @@ class StockController extends Controller
             foreach ($transaction->transactionItems as $transactionItem){
                 $totalAmountSold = $totalAmountSold + ($transactionItem->quantity * $transactionItem->price);
                     $productsSold = $productsSold + $transactionItem->quantity;
+                    $totalDebt = $totalDebt + ($transaction->amount - $transaction->amount_paid);
             }
         }
-        $debtProducts = Debt::where('stock_id','=',$stock->id)->get();
+
         // return $debtProducts;
         foreach ($products as $product){
         $productsLeftInStock = $productsLeftInStock + $product->quantity_in_stock;
         }
 
-        foreach($debtProducts as $pr){
-            foreach($pr->products as $pd){
-            $totalDebt =  $totalDebt + ($pd->price * $pd->quantity);
-            $totalDebtProducts = $totalDebtProducts + $pd->quantity;
-            }
 
-        }
 
 
         return view('pages.management')

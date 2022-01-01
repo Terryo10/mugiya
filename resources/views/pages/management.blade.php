@@ -15,11 +15,11 @@
                                     <th>Anticipated in stock</th>
 
                                     <th>Total Debt </th>
-                                    <th>Products debted</th>
+
                                     <th>Products in stock after debt</th>
                                     <th>Stock Expenses</th>
                                     <th>Stock Discounts</th>
-                                    <th>Total Amount Earned</th>
+                                    <th>Credit after discount & Expense decuction</th>
                                     <th>Status</th>
                                     </thead>
                                     <tbody>
@@ -27,7 +27,7 @@
                                     <td>{{$productsLeftInStock}}</td>
 
                                   <td>$ {{ number_format($totalDebt, 2, ',', '.') }}</td>
-                                  <td>{{$totalDebtProducts}}</td>
+
                                   <td>{{$productsLeftInStock - $totalDebtProducts}}</td>
                                   <td>{{$totalExpense}}</td>
                                   <td>{{$totalDiscount}}</td>

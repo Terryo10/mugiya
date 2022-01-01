@@ -109,6 +109,16 @@ Identifier: {{uniqid()}}
         </tbody>
 
         <tfoot>
+            <tr>
+                <td colspan="1"></td>
+                <td align="left">Amount Paid</td>
+                <td align="left" class="gray">$ {{ number_format($transaction->amount_paid, 2, ',', '.') }}</td>
+            </tr>
+            <tr>
+                <td colspan="1"></td>
+                <td align="left">Total Debt </td>
+                <td align="left" class="gray">$ {{ number_format($total - $transaction->amount_paid , 2, ',', '.') }}</td>
+            </tr>
         <tr>
             <td colspan="1"></td>
             <td align="left">Total</td>
